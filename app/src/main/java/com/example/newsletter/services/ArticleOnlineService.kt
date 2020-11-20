@@ -1,5 +1,6 @@
 package com.example.newsletter.services
 
+import com.example.newsletter.model.ArticleItem
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -63,7 +64,7 @@ class ArticleOnlineService: ApiService {
         })
     }
 
-    override fun getArticles(): List<Article> {
+    override fun getArticles(): List<ArticleItem> {
         return service.list().execute().body()?.articles ?: listOf()
     }
 
