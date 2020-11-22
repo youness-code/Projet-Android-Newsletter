@@ -12,11 +12,7 @@ object EditorData {
     private val service: RetrofitApiService
     private const val baseUrl: String = "https://newsapi.org/"
     suspend fun dataList(apiKey: String): List<Category>{
-        val response = service.list(
-            apiKey = apiKey,
-            category = category.category,
-            sources = category.source
-        )
+        val response = service.list(apiKey = apiKey)
         val sources: List<EditorItem>? = response.body()?.sources
         var r : Int = 15
         if (sources != null) {

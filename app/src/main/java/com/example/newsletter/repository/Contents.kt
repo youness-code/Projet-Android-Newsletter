@@ -76,6 +76,7 @@ object Contents {
             .addConverterFactory(GsonConverterFactory.create())
             .client(httpClient.build())
             .build()
-    service = retrofit.create(ApiService::class.java)
+        service = retrofit.create(ApiService::class.java)
+
     }
 }
