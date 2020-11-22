@@ -1,3 +1,3 @@
 package com.example.newsletter.model
 
-data class ArticleObject(val articles : List<ArticleItem>)
+data class ArticleObject(val articles : List<Article>)
