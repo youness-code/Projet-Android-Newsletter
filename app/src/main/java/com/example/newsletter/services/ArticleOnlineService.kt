@@ -1,5 +1,6 @@
 package com.example.newsletter.services
 
+import com.example.newsletter.model.Article
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -68,7 +69,7 @@ class ArticleOnlineService: ApiService {
     }
 
     companion object {
-        private const val apiKey = "YOUR_API_KEY"
-        private const val apiUrl = "THE_API_URL"
+        private const val apiKey = "7b7d36b8c1434af18f651f7ccd2eca2e"
+        private const val apiUrl = "https://newsapi.org/"
     }
 }
