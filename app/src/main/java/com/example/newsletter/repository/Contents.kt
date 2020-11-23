@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Contents {
     private val service: ApiService
-    private const val baseUrl: String = "http://newsapi.org/"
+    private const val baseUrl: String = "http://newsapi.org/v2/"
     private const val apiKey: String = "7b7d36b8c1434af18f651f7ccd2eca2e"
     private const val country: String = "us"
     var isFetched = false
@@ -31,7 +31,15 @@ object Contents {
             ?.filter {
                 !it.urlToImage.isNullOrBlank()
             }
-        return  articles ?:emptyList()
+        return articles ?: emptyList()
+    }
+     suspend fun fetchAllArticles(){
+            CategoriesData.dataList.forEach{
+                val catName = it.name
+                val listArticles = articleList(it)
+                categoryArticles.put(catName, listArticles)
+            }
+            isFetched = true
     }
 
     fun categoryList(): List<Category> = CategoriesData.dataList

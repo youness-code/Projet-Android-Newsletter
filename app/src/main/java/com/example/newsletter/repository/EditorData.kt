@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object EditorData {
     private val service: RetrofitApiService
-    private const val baseUrl: String = "https://newsapi.org/"
+    private const val baseUrl: String = "https://newsapi.org/v2/"
     suspend fun dataList(apiKey: String): List<Category>{
         val response = service.list(apiKey = apiKey)
         val sources: List<EditorItem>? = response.body()?.sources

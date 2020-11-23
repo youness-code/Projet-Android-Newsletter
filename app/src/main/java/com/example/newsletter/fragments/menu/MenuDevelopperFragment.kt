@@ -25,7 +25,7 @@ class MenuDevelopperFragment(private val cellClickListener: CellClickListener) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Developpers
+        //********************Developpers*************************************
 
         val recyclerViewdevinfo: RecyclerView = view.findViewById(R.id.developper_infos)
         val aproposdenousitem = Contents.MenuDevelopperList()

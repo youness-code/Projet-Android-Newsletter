@@ -1,16 +1,18 @@
 package com.example.newsletter.fragments
 
+import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.newsletter.MainActivity
-import com.example.newsletter.changeFragment
+
 import com.example.newsletter.databinding.FragmentAcceuilBinding
 import com.example.newsletter.fragments.categories.CategoriesFragment
 import com.example.newsletter.fragments.categories.CountryFragment
 import com.example.newsletter.fragments.categories.EditorFragment
+import com.example.newsletter.MainActivity
+import com.example.newsletter.changeFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

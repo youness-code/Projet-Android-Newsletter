@@ -9,10 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.newsletter.R
-import com.example.newsletter.MainActivity
+
 import com.example.newsletter.adapters.ArticleRecyclerViewAdapter
 import com.example.newsletter.model.Category
 import com.example.newsletter.repository.Contents
+import com.example.newsletter.MainActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

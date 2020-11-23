@@ -5,7 +5,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ApiService : RetrofitApiService {
+interface ApiService {
     @GET("top-headlines")
     suspend fun list(
         @Query("category") category: String,

@@ -17,19 +17,26 @@ import com.example.newsletter.fragments.aproposdenous.MenuDevelopperFragment
 import com.example.newsletter.fragments.aproposdenous.MenuFonctionnalitiesFragment
 import com.example.newsletter.fragments.aproposdenous.MenuLlibrairiesFragment
 import com.example.newsletter.fragments.favoris.ArticleFavorisFragment
+import com.example.newsletter.R
 
 
 class MainActivity : AppCompatActivity(), CellClickListener {
+
+    private var PRIVATE_MODE = 0
+    private val PREF_NAME = "articles-favoris"
+    private val sharedPref: SharedPreferences by lazy { getSharedPreferences(PREF_NAME, PRIVATE_MODE) }
+    var URL: Array<String> = arrayOf(
+        "http://newsapi.org/v2/top-headlines?country=us&apiKey=d291dacb598f4323aae83248742ecfba",
+        "http://newsapi.org/v2/top-headlines?country=fr&apiKey=d291dacb598f4323aae83248742ecfba"
+
+        )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPref.edit().clear().commit()
         setContentView(R.layout.activity_main)
         changeFragment(AcceuilFragment(this))
-    }
 
-    private var PRIVATE_MODE = 0
-    private val PREF_NAME = "articles-favoris"
-    private val sharedPref: SharedPreferences by lazy { getSharedPreferences(PREF_NAME, PRIVATE_MODE) }
+    }
 
     fun onFavArticle( article: Article){
         val FAV_KEY = "article_fav"
@@ -63,7 +70,7 @@ class MainActivity : AppCompatActivity(), CellClickListener {
         val gson: Gson = Gson()
 
         val articlesString = sharedPref.getString(FAV_KEY, "[]")
-        println(" $articlesString")
+        println("------------------------------------------- $articlesString")
         val type = object : TypeToken<MutableList<Article?>?>() {}.type
         val articles = gson.fromJson<MutableList<Article>>(articlesString, type)
         return articles
@@ -73,8 +80,9 @@ class MainActivity : AppCompatActivity(), CellClickListener {
         println("Catégory cliquée : $category")
         changeFragment(ArticlesFragment(category, this))
     }
-
-    // Gestion des menus
+    /**
+     * gestion des menus
+     */
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -111,8 +119,9 @@ class MainActivity : AppCompatActivity(), CellClickListener {
 
 }
 
-// Ajouter le fragmet [ComputationFragment] dans l'activité
-
+/**
+ * Ajouter le fragmet [ComputationFragment] dans l'activité
+ */
 fun MainActivity.changeFragment(fragment: Fragment) {
     supportFragmentManager.beginTransaction().apply {
         //3) on remplace le contenu du container
@@ -121,4 +130,5 @@ fun MainActivity.changeFragment(fragment: Fragment) {
         addToBackStack(null)
     }.commit()
     // 5) on commit la transaction
+
 }

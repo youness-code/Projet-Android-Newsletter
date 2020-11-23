@@ -11,6 +11,12 @@ import com.example.newsletter.R
 import com.example.newsletter.adapters.CategoryRecyclerViewAdapter
 import com.example.newsletter.repository.Contents
 import com.example.newsletter.utils.CellClickListener
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
+import com.example.newsletter.model.Category
+import com.example.newsletter.adapters.ArticleRecyclerViewAdapter
 
 
 class CategoriesFragment(private val cellClickListener: CellClickListener) : Fragment() {
